@@ -22,7 +22,8 @@ import { LoginComponent } from '../app/auth/login/login.component';
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    //materialModule
   ],
   providers: [
     StatusBar,
