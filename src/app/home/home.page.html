@@ -1,0 +1,19 @@
+<table align="center">
+  <tr>
+    <td>
+
+      <h1>Wellcome to Home Page</h1>
+      user: {{ user?.displayName }}
+
+      <div>
+
+        <button *ngIf="user" (click)="logoutGoogle()">
+          Logout
+        </button>
+
+      </div>
+
+    </td>
+  </tr>
+
+</table>
