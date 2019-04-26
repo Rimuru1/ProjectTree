@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 
 
 
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private service: LoginService,
-    private router: Router
+    private router: Router,
+  
   ) {}
 
   ngOnInit() {
@@ -41,6 +44,7 @@ export class LoginComponent implements OnInit {
     this.service.login()
     
   }
+  
 
 
 }
