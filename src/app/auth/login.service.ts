@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase';
+import { HttpClient } from 'selenium-webdriver/http';
+
 
 
 @Injectable({
@@ -10,20 +12,23 @@ export class LoginService {
 
   constructor(
     private afAuth: AngularFireAuth,
-  
+    
+
   ) { }
 
-  login(){
+  login() {
     console.log('Redirecting to google login provider')
-    this.afAuth.auth.signInWithRedirect(new auth.GoogleAuthProvider() );
+    this.afAuth.auth.signInWithRedirect(new auth.GoogleAuthProvider());
   }
 
-  logout(){
+  logout() {
     console.log('logouting..')
     this.afAuth.auth.signOut()
   }
 
-  getLoggedInUser(){
+  getLoggedInUser() {
     return this.afAuth.authState;
   }
+
+
 }

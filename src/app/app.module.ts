@@ -8,10 +8,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { environment} from '../environments/environment';
+import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from '../app/auth/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -23,6 +25,7 @@ import { LoginComponent } from '../app/auth/login/login.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    HttpClientModule
     //materialModule
   ],
   providers: [
@@ -32,4 +35,4 @@ import { LoginComponent } from '../app/auth/login/login.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

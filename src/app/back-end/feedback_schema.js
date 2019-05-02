@@ -6,11 +6,11 @@ var FeedbackSchema = mongoose.Schema({
     lname: { type: String, require: true },
     username: { type: String, require: true },
     password: { type: String, require: true },
-    email: { type: String, require: true },
+    email: { type: String, require: true }
 
 })
 
-var FeedbackModel = mongoose.model('member', FeedbackSchema);
+var FeedbackModel = mongoose.model('members', FeedbackSchema);
 module.exports = FeedbackModel;
 
 

@@ -18,8 +18,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   
+  
   { path: 'register', 
     loadChildren: './register/register.module#RegisterPageModule' }
+
 
   
 ];
