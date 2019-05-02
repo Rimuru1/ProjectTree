@@ -1,5 +1,8 @@
 import { Injectable, OnInit, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
+
 
 
 
@@ -8,15 +11,23 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ServiceService implements OnInit {
 
+  email:string ="";
+  password:string ="";
+
   constructor(
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private router: Router) { }
 
 
   onSubmit(data) {
 
     this.http.post<any>('http://localhost:3000/register', data).subscribe(result => {
+      this.router.navigateByUrl('/login');
       alert(JSON.stringify(result));
     });
+  }
+  clickLogin(){
+    
   }
   ngOnInit() {
 
