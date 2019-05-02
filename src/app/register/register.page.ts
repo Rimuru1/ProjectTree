@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
+import { Router } from '@angular/router';
+
 
 
 
@@ -10,11 +12,12 @@ import { ServiceService } from '../service.service';
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
-export class RegisterPage {
+export class RegisterPage implements OnInit {
 
   constructor(
 
-    private regis: ServiceService
+    private regis: ServiceService,
+    private router: Router
 
   ) { }
 
@@ -22,8 +25,15 @@ export class RegisterPage {
   onSubmit(data) {
     console.log("Registing...");
     this.regis.onSubmit(data)
-  }
 
+    if (data != null) {
+      this.router.navigateByUrl('/login');
+
+    }
+  }
+  ngOnInit() {
+
+  }
 }
 
 
