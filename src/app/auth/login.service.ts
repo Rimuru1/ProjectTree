@@ -29,6 +29,9 @@ export class LoginService {
   getLoggedInUser() {
     return this.afAuth.authState;
   }
-
+  loginFB() {
+    console.log('Redirecting to Facebook login provider')
+    this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider());
+  }
 
 }

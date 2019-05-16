@@ -44,7 +44,10 @@ export class LoginComponent implements OnInit {
     this.service.login()
     
   }
-  
+  loginFacebook(){
+    console.log("login...");
+    this.service.loginFB()
+  }
 
 
 }
