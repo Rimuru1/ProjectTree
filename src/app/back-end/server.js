@@ -33,11 +33,11 @@ app.get('/home', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
-    
+
     let userData = req.body
     let user = User(userData)
     user.save((error, registeredUser) => {
-        if (error){
+        if (error) {
             console.log(error)
         } else {
             res.status(200).send(registeredUser)
@@ -45,3 +45,22 @@ app.post('/register', (req, res) => {
     })
 
 });
+
+app.post('/login', (req, res) => {
+    let userData = req.body
+
+    User.findOne({ email: userData.email }, (error, user) => {
+        if (error) {
+            console.log(error)
+        } else {
+            if (!user) {
+                res.status(401).send('Invalid email')
+            } else
+                if (user.password !== userData.password) {
+                    res.status(401).send('Invalid password')
+                } else {
+                    res.status(200).send('login success')
+                }
+        }
+    })
+})
