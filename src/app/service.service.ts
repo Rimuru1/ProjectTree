@@ -3,16 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService implements OnInit {
-
-  email:string ="";
-  password:string ="";
 
   constructor(
     private http: HttpClient,
@@ -26,9 +20,11 @@ export class ServiceService implements OnInit {
       alert(JSON.stringify(result));
     });
   }
-  clickLogin(){
-    
+
+  clickLogin() {
+
   }
+
   ngOnInit() {
 
   }

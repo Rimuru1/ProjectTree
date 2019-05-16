@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 const pussy = require('body-parser');
-require('./db');
-const FeedbackModel = require('./feedback_schema');
+require('./api');
+const FeedbackModel = require('./user');
+const User = require('./user')
 
 app.use(pussy.json());
 app.use(pussy.urlencoded());
@@ -32,19 +33,15 @@ app.get('/home', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
-    //const id = req.body.id;
-    const fname = req.body.fname;
-    const lname = req.body.lname;
-    const username = req.body.username;
-    const password = req.body.password;
-    const email = req.body.email;
-
-
-    FeedbackModel.create(req.body, (err, doc) => {
-        if (err) res.json({ result: "Fail!" });
-        res.json({ result: "Register success"});
+    
+    let userData = req.body
+    let user = User(userData)
+    user.save((error, registeredUser) => {
+        if (error){
+            console.log(error)
+        } else {
+            res.status(200).send(registeredUser)
+        }
     })
-
-
 
 });
